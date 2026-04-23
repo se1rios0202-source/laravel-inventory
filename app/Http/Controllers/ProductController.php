@@ -12,4 +12,8 @@ class ProductController extends Controller
     public function __construct(Product $product){
         $this->product = $product;
     }
+
+    public function index(){
+        return view('products.index');
+    }
 }
