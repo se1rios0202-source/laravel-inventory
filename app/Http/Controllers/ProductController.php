@@ -14,6 +14,27 @@ class ProductController extends Controller
     }
 
     public function index(){
-        return view('products.index');
+        $all_products = $this->product->all();
+        return view('products.index')->with('all_products',$all_products);
+    }
+    
+    public function store(Request $request){
+        $this->product->name=$request->name;
+        $this->product->price=$request->price;
+        $this->product->save();
+
+        return redirect('/');
+    }
+    public function edit($id){
+        $product = $this->product->findOrFail($id);
+        
+        return view('products.edit')->with('product',$product);
+    }
+    
+    public function destroy($id){
+        $product = $this->product->findOrFail($id);
+        $product->delete();
+
+        return redirect('/');
     }
 }
