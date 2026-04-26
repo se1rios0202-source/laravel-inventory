@@ -19,22 +19,33 @@ class ProductController extends Controller
     }
     
     public function store(Request $request){
+        $request->validate(['name'=>'required | string | max:100',]);
+        $request->validate(['price'=>'required | numeric']);
         $this->product->name=$request->name;
         $this->product->price=$request->price;
         $this->product->save();
 
-        return redirect('/');
+        return back();
     }
     public function edit($id){
-        $product = $this->product->findOrFail($id);
+        $product = $this->product->find($id);
         
         return view('products.edit')->with('product',$product);
     }
-    
-    public function destroy($id){
-        $product = $this->product->findOrFail($id);
-        $product->delete();
+    public function update($id,Request $request){
+        $request->validate(['name'=>'required | string | max:100',]);
+        $request->validate(['price'=>'required | numeric']);
+        $product = $this->product->find($id);
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->save();
 
         return redirect('/');
+    }
+    
+    public function destroy($id){
+        $product = $this->product->destroy($id);
+
+        return back();
     }
 }

@@ -4,7 +4,14 @@
 
 @section('content')
     <div class="container mt-5">
-        <form action="{{url('/product/store')}}" method="post">
+    @if ($errors->any())
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li style="color:red;">{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+        <form action="/product/store" method="post">
             @csrf
             <div class="row align-items-end g-3">
                 <div class="col-8">
@@ -39,11 +46,11 @@
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->price }}</td>
                         <td>
-                            <a href="{{ url('/product/'.$product->id.'/edit') }}" class="btn btn-secondary">
+                            <a href="/product/{{ $product->id }}/edit" class="btn btn-secondary">
                                 Edit
                             </a>
 
-                            <form action="{{ url('/product/'.$product->id.'/destroy') }}" method="POST" style="display:inline;">
+                            <form action="/product/{{ $product->id }}/destroy" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
 
