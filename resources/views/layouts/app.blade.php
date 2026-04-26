@@ -5,6 +5,7 @@
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        @vite(['resources/css/app.css','resources/js/app.js'])
         <!--font-awesome-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Bootstrap CSS v5.3.8 -->
@@ -17,12 +18,10 @@
     </head>
 
     <body>
-        <main class="py-5">
+        <main class="py-5 bg-[#f5f5ef] min-h-screen">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-6">
                         @yield('content')
-                    </div>
                 </div>
             </div>
         </main>
