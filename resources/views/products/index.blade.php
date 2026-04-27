@@ -21,7 +21,7 @@
 
                     <div>
                         <label for="price">Price</label>
-                        <input type="number" name ="price" step="any" class="w-28 rounded-full bg-white/80 px-5 py-2 outline-none focus:ring-4 focus:ring-emerald-300 hover:ring-4 hover:ring-emerald-500 transition">
+                        <input type="number" name ="price" step="any" class="w-28 rounded-full bg-white/80 px-5 py-2 w-36 outline-none focus:ring-4 focus:ring-emerald-300 hover:ring-4 hover:ring-emerald-500 transition">
                     </div>
 
                     <button type="submit" class="rounded-full bg-emerald-400 px-8 py-2 text-white text-lg shadow-sm focus:bg-emerald-700 hover:bg-green-500 transition">
@@ -39,12 +39,12 @@
                 </thead>
                 <tbody>
                     @foreach ($all_products as $product)
-                        <tr class="text-gray-700 text-lg">
+                        <tr class="text-gray-700 text-lg h-12">
                             <td>{{ $product->id }}</td>
                             <td>{{ $product->name }}</td>
                             <td>{{ $product->price }}</td>
                             <td class="flex gap-4">
-                                <a href="/product/{{ $product->id }}/edit" class="btn btn-secondary">
+                                <a href="/product/{{ $product->id }}/edit" class="btn btn-warning text-white">
                                     Edit
                                 </a>
 
@@ -52,7 +52,7 @@
                                     @csrf
                                     @method('DELETE')
 
-                                    <button type="submit" class="rounded-full bg-red-600 px-7 py-2 text-white hover:bg-red-700 transition">
+                                    <button type="submit" class="rounded bg-red-600 px-3 py-2 text-white hover:bg-red-700 transition">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
                                 </form>
