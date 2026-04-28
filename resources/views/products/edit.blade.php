@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container mt-5">
-        <form action="/product/{{$product->id}}/update" method="post">
+        <form action="/product/{{$product->id}}/update" method="post" class="flex flex-col md:flex-row md:items-end gap-4 md:gap-6">
             @csrf
             @method('PATCH')
             <div class="row align-items-end g-3">
