@@ -60,5 +60,8 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="mt-6">
+                {{ $all_products->links() }}
+            </div>
     </div>
 @endsection

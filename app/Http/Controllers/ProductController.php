@@ -14,7 +14,7 @@ class ProductController extends Controller
     }
 
     public function index(){
-        $all_products = $this->product->all();
+        $all_products = $this->product->paginate(5);
         return view('products.index')->with('all_products',$all_products);
     }
     
