@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <button type="submit" class="w-full md:w-auto btn btn-warning text-white active:scale-95 active:shadow-inner transition">
+                    <button type="submit" class="w-full md:w-auto btn btn-info text-white active:scale-95 active:shadow-inner transition">
                         <i class="fa-solid fa-plus"></i>Update
                     </button>
                 </div>
